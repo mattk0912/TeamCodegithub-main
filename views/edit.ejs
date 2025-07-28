@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Edit Member</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+<div class="container mt-5">
+  <h2>Edit Member</h2>
+  <form method="POST" action="/members/edit/<%= member.memberID %>">
+    <div class="mb-3"><label>Name</label><input type="text" name="memberName" class="form-control" value="<%= member.memberName %>" required></div>
+    <div class="mb-3"><label>Email</label><input type="email" name="email" class="form-control" value="<%= member.email %>" required></div>
+    <div class="mb-3"><label>Address</label><input type="text" name="address" class="form-control" value="<%= member.address %>" required></div>
+    <div class="mb-3"><label>Phone</label><input type="text" name="phone" class="form-control" value="<%= member.phone %>" required></div>
+    <div class="mb-3">
+      <label>Role</label>
+      <select name="role" class="form-control">
+        <option value="member" <%= member.role === 'member' ? 'selected' : '' %>>Member</option>
+        <option value="admin" <%= member.role === 'admin' ? 'selected' : '' %>>Admin</option>
+      </select>
+    </div>
+    <button type="submit" class="btn btn-success">Update</button>
+    <a href="/" class="btn btn-secondary">Back to Home</a>
+  </form>
+</div>
+</body>
+</html>
