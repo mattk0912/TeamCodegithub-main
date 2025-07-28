@@ -64,8 +64,16 @@
           <a href="/editLocation/<%= locations[i].location_id %>" class="btn btn-sm btn-primary">Edit</a>
           <a href="/deleteLocation/<%= locations[i].location_id %>" class="btn btn-sm btn-danger" onclick="return confirm('Are you sure you want to delete this location?')">Delete</a>
         </div>
+        <td>
+            <% if (user && user.role === 'admin') { %>
+              <a href="/editLocation/<%= locations[i].location_id %>" class="btn btn-warning btn-sm">Edit</a>
+              <a href="/deleteLocation/<%= locations[i].location_id %>" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure you want to delete this location?')">Delete</a>
+            <% } 
+            %>
+        </td>
       </div>
     </div>
   <% } %>
 </div>
+
 
